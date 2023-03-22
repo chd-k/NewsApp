@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">News App</string>
+    <!-- Custom strings -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_news_feed">News Feed</string>
+    <string name="title_search">Search</string>
+    <string name="title_saved_news">Saved News</string>
+    <string name="fab_description">Save article</string>
+    <string name="iv_description">Cover of the article</string>
+    <string name="et_search">Enter your search request…</string>
 </resources>
