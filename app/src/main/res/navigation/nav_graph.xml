@@ -3,11 +3,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/newsFeedFragment">
+    app:startDestination="@id/news_feed_fragment">
 
     <fragment
-        android:id="@+id/newsFeedFragment"
-        android:name="com.asgribovskaya.newsapp.NewsFeedFragment"
+        android:id="@+id/news_feed_fragment"
+        android:name="com.asgribovskaya.newsapp.ui.fragments.NewsFeedFragment"
         android:label="fragment_news_feed"
-        tools:layout="@layout/fragment_news_feed" />
+        tools:layout="@layout/fragment_news_feed" >
+        <action
+            android:id="@+id/action_newsFeedFragment_to_articlePageFragment"
+            app:destination="@id/article_page_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/saved_news_fragment"
+        android:name="com.asgribovskaya.newsapp.ui.fragments.SavedNewsFragment"
+        android:label="fragment_saved_news"
+        tools:layout="@layout/fragment_saved_news" >
+        <action
+            android:id="@+id/action_savedNewsFragment_to_articlePageFragment"
+            app:destination="@id/article_page_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/article_page_fragment"
+        android:name="com.asgribovskaya.newsapp.ui.fragments.ArticlePageFragment"
+        android:label="fragment_article_page"
+        tools:layout="@layout/fragment_article_page" />
+
+    <fragment
+        android:id="@+id/search_fragment"
+        android:name="com.asgribovskaya.newsapp.ui.fragments.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_articlePageFragment"
+            app:destination="@id/article_page_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
 </navigation>

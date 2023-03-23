@@ -1,4 +1,4 @@
-package com.asgribovskaya.newsapp
+package com.asgribovskaya.newsapp.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -1,22 +1,22 @@
-package com.asgribovskaya.newsapp
+package com.asgribovskaya.newsapp.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.asgribovskaya.newsapp.databinding.FragmentSavedNewsBinding
+import com.asgribovskaya.newsapp.databinding.FragmentSearchBinding
 
-class SavedNewsFragment : Fragment() {
+class SearchFragment : Fragment() {
 
-    private lateinit var binding: FragmentSavedNewsBinding
+    private lateinit var binding: FragmentSearchBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
         // Inflate the layout for this fragment
-        binding = FragmentSavedNewsBinding.inflate(inflater, container, false)
+        binding = FragmentSearchBinding.inflate(inflater, container, false)
         return binding.root
     }
 }
