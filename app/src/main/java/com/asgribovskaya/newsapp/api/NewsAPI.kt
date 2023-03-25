@@ -1,6 +1,6 @@
 package com.asgribovskaya.newsapp.api
 
-import com.asgribovskaya.newsapp.NewsResponse
+import com.asgribovskaya.newsapp.models.NewsResponse
 import com.asgribovskaya.newsapp.util.Constants.API_KEY
 import retrofit2.Response
 import retrofit2.http.GET
