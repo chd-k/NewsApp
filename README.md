@@ -19,7 +19,7 @@ Made decomposition of app development process and write a table to track my time
 | Navigation (`ui` repo)               | Navigation component (fragments files was implemented on the previous step). Set up (and read about) animations                         | 30 minutes |
 | Retrofit setup (`api` repo)          | API interface, response classes, dependencies and internet permission                                                                   | 1 hour     |
 | Room setup (`models` and `db` repos) | Entity, DAO, Database and type converters                                                                                               | 40 minutes |
-| RecyclerView setup                   |                                                                                                                                         |            |
+| RecyclerView setup (`adapters` repo) | Adapter and ViewHolder with DiffUtil                                                                                                    | 40 minutes |
 | Architecture                         |                                                                                                                                         |            |
 | Handling response                    |                                                                                                                                         |            |
 | Search setup                         |                                                                                                                                         |            |

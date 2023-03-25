@@ -20,7 +20,7 @@
         android:contentDescription="@string/iv_description" />
 
     <TextView
-        android:id="@+id/tv_article_link"
+        android:id="@+id/tv_article_source"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -29,7 +29,7 @@
         app:layout_constraintEnd_toStartOf="@+id/gl_article"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_article_cover"
-        tools:text="LinkLinkLink" />
+        tools:text="Source" />
 
     <TextView
         android:id="@+id/tv_article_date_time"
@@ -39,7 +39,7 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/gl_article"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_article_link"
+        app:layout_constraintTop_toBottomOf="@+id/tv_article_source"
         tools:text="2023 03.01 12:42 AM" />
 
     <TextView
@@ -57,7 +57,7 @@
         tools:text="Title of the article" />
 
     <TextView
-        android:id="@+id/tv_article_text"
+        android:id="@+id/tv_article_description"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
@@ -67,7 +67,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/gl_article"
         app:layout_constraintTop_toBottomOf="@+id/tv_article_title"
-        tools:text="Text of the article. Text of the article. Text of the article. Text of the article" />
+        tools:text="Description of the article. Description Description Description Description Description Description Description Description Description Description " />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl_article"
