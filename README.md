@@ -9,6 +9,7 @@
 - Coroutines
 - Room
 - LiveData
+- MVVM
 
 ### Decomposition of process
 Made decomposition of app development process and write a table to track my time to realization and summarize task completion
@@ -20,7 +21,7 @@ Made decomposition of app development process and write a table to track my time
 | Retrofit setup (`api` repo)          | API interface, response classes, dependencies and internet permission                                                                   | 1 hour     |
 | Room setup (`models` and `db` repos) | Entity, DAO, Database and type converters                                                                                               | 40 minutes |
 | RecyclerView setup (`adapters` repo) | Adapter and ViewHolder with DiffUtil                                                                                                    | 40 minutes |
-| Architecture                         |                                                                                                                                         |            |
+| Architecture                         | ViewModel, ViewModel factory, wrapper class for Retrofit responses                                                                      | 1 hour     |
 | Handling response                    |                                                                                                                                         |            |
 | Search setup                         |                                                                                                                                         |            |
 | WebView setup                        |                                                                                                                                         |            |
@@ -32,3 +33,10 @@ Made decomposition of app development process and write a table to track my time
 
 - [x] ViewBinding usage 
 - [x] Converting `id` of `Source` too (not replacing it with duplicated `name`) 
+- [x] Define ViewModel factory in its file, not in separate class
+- [x] Define wrapper responses class with sealed interface, not sealed class
+
+### My questions
+1. Is it okay to use one ViewModel across multiple Fragments?
+2. Is it okay to get access Activity variable from Fragments (like `viewModel = (activity as MainActivity).viewModel`)?
+

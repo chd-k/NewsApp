@@ -6,10 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.asgribovskaya.newsapp.databinding.FragmentNewsFeedBinding
+import com.asgribovskaya.newsapp.ui.MainActivity
+import com.asgribovskaya.newsapp.ui.NewsViewModel
 
 class NewsFeedFragment : Fragment() {
 
     private lateinit var binding: FragmentNewsFeedBinding
+    private lateinit var viewModel: NewsViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -20,4 +23,8 @@ class NewsFeedFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel = (activity as MainActivity).viewModel
+    }
 }
