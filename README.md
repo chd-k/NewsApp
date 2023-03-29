@@ -10,6 +10,7 @@
 - Room
 - LiveData
 - MVVM
+- Glide
 
 ### Decomposition of process
 Made decomposition of app development process and write a table to track my time to realization and summarize task completion
@@ -22,7 +23,7 @@ Made decomposition of app development process and write a table to track my time
 | Room setup (`models` and `db` repos) | Entity, DAO, Database and type converters                                                                                               | 40 minutes |
 | RecyclerView setup (`adapters` repo) | Adapter and ViewHolder with DiffUtil                                                                                                    | 40 minutes |
 | Architecture                         | ViewModel, ViewModel factory, wrapper class for Retrofit responses                                                                      | 1 hour     |
-| Handling response                    |                                                                                                                                         |            |
+| Handling response                    | Setup streams between `NewsRepository` and `NewsViewModel`, `NewsViewModel` and `NewsFeedFragment`                                      | 1 hour     |
 | Search setup                         |                                                                                                                                         |            |
 | WebView setup                        |                                                                                                                                         |            |
 | Writing to DB                        |                                                                                                                                         |            |
@@ -39,4 +40,5 @@ Made decomposition of app development process and write a table to track my time
 ### My questions
 1. Is it okay to use one ViewModel across multiple Fragments?
 2. Is it okay to get access Activity variable from Fragments (like `viewModel = (activity as MainActivity).viewModel`)?
+3. How to check API responses with codes?
 
