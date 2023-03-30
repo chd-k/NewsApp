@@ -11,6 +11,7 @@
 - LiveData
 - MVVM
 - Glide
+- Material Design
 
 ### Decomposition of process
 Made decomposition of app development process and write a table to track my time to realization and summarize task completion
@@ -24,14 +25,15 @@ Made decomposition of app development process and write a table to track my time
 | RecyclerView setup (`adapters` repo) | Adapter and ViewHolder with DiffUtil                                                                                                    | 40 minutes |
 | Architecture                         | ViewModel, ViewModel factory, wrapper class for Retrofit responses                                                                      | 1 hour     |
 | Handling response                    | Setup streams between `NewsRepository` and `NewsViewModel`, `NewsViewModel` and `NewsFeedFragment`                                      | 1 hour     |
-| Search setup                         |                                                                                                                                         |            |
+| Search setup                         | Setup searching function and streams for searching                                                                                      | 45 minutes |
 | WebView setup                        |                                                                                                                                         |            |
 | Writing to DB                        |                                                                                                                                         |            |
 | Pagination                           |                                                                                                                                         |            |
 | Internet connection checking         |                                                                                                                                         |            |
 
-### My features
+### My features (which was not in tutorial)
 
+- [x] Material Design style
 - [x] ViewBinding usage 
 - [x] Converting `id` of `Source` too (not replacing it with duplicated `name`) 
 - [x] Define ViewModel factory in its file, not in separate class
