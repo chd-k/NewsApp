@@ -39,6 +39,7 @@ Made decomposition of app development process and write a table to track my time
 - [x] Define ViewModel factory in its file, not in separate class
 - [x] Define wrapper responses class with sealed interface, not sealed class
 - [x] Using `Safe Args` generated class for directions
+- [x] Using `Parcelable`
 
 ### My questions
 1. Is it okay to use one ViewModel across multiple Fragments?
