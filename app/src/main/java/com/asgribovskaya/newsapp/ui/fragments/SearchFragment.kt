@@ -9,6 +9,7 @@ import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.asgribovskaya.newsapp.adapters.NewsAdapter
 import com.asgribovskaya.newsapp.databinding.FragmentSearchBinding
@@ -45,6 +46,13 @@ class SearchFragment : Fragment() {
         viewModel = (activity as MainActivity).viewModel
 
         setUpRecyclerView()
+
+        newsAdapter.setOnItemClickListener {
+            findNavController().navigate(
+                SearchFragmentDirections
+                    .actionSearchFragmentToArticlePageFragment(it)
+            )
+        }
 
         setUpSearch()
 

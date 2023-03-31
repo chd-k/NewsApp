@@ -33,7 +33,11 @@
         android:id="@+id/article_page_fragment"
         android:name="com.asgribovskaya.newsapp.ui.fragments.ArticlePageFragment"
         android:label="fragment_article_page"
-        tools:layout="@layout/fragment_article_page" />
+        tools:layout="@layout/fragment_article_page" >
+        <argument
+            android:name="article"
+            app:argType="com.asgribovskaya.newsapp.models.Article" />
+    </fragment>
 
     <fragment
         android:id="@+id/search_fragment"

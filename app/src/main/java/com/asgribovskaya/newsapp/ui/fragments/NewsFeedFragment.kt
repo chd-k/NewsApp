@@ -8,6 +8,7 @@ import android.view.View
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.asgribovskaya.newsapp.adapters.NewsAdapter
 import com.asgribovskaya.newsapp.databinding.FragmentNewsFeedBinding
@@ -39,6 +40,13 @@ class NewsFeedFragment : Fragment() {
         viewModel = (activity as MainActivity).viewModel
 
         setUpRecyclerView()
+
+        newsAdapter.setOnItemClickListener {
+            findNavController().navigate(
+                NewsFeedFragmentDirections
+                    .actionNewsFeedFragmentToArticlePageFragment(it)
+            )
+        }
 
         viewModel.breakingNews.observe(viewLifecycleOwner) { apiResponse ->
             when (apiResponse) {
