@@ -27,7 +27,7 @@ Made decomposition of app development process and write a table to track my time
 | Handling response                    | Set up streams between `NewsRepository` and `NewsViewModel`, `NewsViewModel` and `NewsFeedFragment`                                     | 1 hour            |
 | Search setup                         | Set up searching function and streams for searching                                                                                     | 45 minutes        |
 | WebView setup                        | Set up argument for `ArticlePageFragment`, passing data through nav component and debug `java.lang.NullPointerException`                | 1 hour 30 minutes |
-| Writing to DB                        |                                                                                                                                         |                   |
+| Writing to DB                        | Set up streams for writing and deleting                                                                                                 | 45 minutes        |
 | Pagination                           |                                                                                                                                         |                   |
 | Internet connection checking         |                                                                                                                                         |                   |
 
@@ -50,4 +50,5 @@ Made decomposition of app development process and write a table to track my time
 - [ ] redesign app
 - [ ] refactor properties
 - [ ] refactor methods
+- [ ] debug `java.lang.NullPointerException` because of null `hachCode()`
 

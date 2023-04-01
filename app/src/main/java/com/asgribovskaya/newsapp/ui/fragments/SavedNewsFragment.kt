@@ -6,11 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.asgribovskaya.newsapp.adapters.NewsAdapter
 import com.asgribovskaya.newsapp.databinding.FragmentSavedNewsBinding
 import com.asgribovskaya.newsapp.ui.MainActivity
 import com.asgribovskaya.newsapp.ui.NewsViewModel
+import com.google.android.material.snackbar.Snackbar
 
 class SavedNewsFragment : Fragment() {
 
@@ -37,6 +40,35 @@ class SavedNewsFragment : Fragment() {
                 SavedNewsFragmentDirections
                     .actionSavedNewsFragmentToArticlePageFragment(it)
             )
+        }
+
+        val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(
+            ItemTouchHelper.UP or ItemTouchHelper.DOWN,
+            ItemTouchHelper.LEFT
+        ) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder,
+            ) = true
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val position = viewHolder.bindingAdapterPosition
+                with(newsAdapter.listDiffer.currentList[position]) {
+                    viewModel.deleteArticle(this)
+                    Snackbar
+                        .make(view, "Article deleted!", Snackbar.LENGTH_LONG)
+                        .setAction("Undo") {
+                            viewModel.saveArticle(this)
+                        }.show()
+                }
+            }
+        }
+
+        ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(binding.rvSavedArticles)
+
+        viewModel.getAllArticles().observe(viewLifecycleOwner) {
+            newsAdapter.listDiffer.submitList(it)
         }
     }
 
