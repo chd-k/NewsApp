@@ -34,7 +34,7 @@ class ArticlePageFragment : Fragment() {
         val article = args.article
         binding.wvArticlePage.apply {
             webViewClient = WebViewClient()
-            loadUrl(article.url)
+            loadUrl(article.url!!)
         }
 
         binding.fabArticleSave.setOnClickListener {

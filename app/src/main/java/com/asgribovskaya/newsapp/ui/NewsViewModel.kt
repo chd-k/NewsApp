@@ -11,6 +11,7 @@ import com.asgribovskaya.newsapp.util.ApiError
 import com.asgribovskaya.newsapp.util.ApiLoading
 import com.asgribovskaya.newsapp.util.ApiResponse
 import com.asgribovskaya.newsapp.util.ApiSuccess
+import com.asgribovskaya.newsapp.util.Constants.COUNTRY_CODE
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
@@ -20,11 +21,16 @@ class NewsViewModel(
 
     val breakingNews: MutableLiveData<ApiResponse<NewsResponse>> = MutableLiveData()
     var breakingNewsPage = 1
+    var breakingNewsResponse: NewsResponse? = null
     val searchedNews: MutableLiveData<ApiResponse<NewsResponse>> = MutableLiveData()
     var searchedNewsPage = 1
+    var searchedNewsResponse: NewsResponse? = null
+    var oldSearchQuery: String? = null
+    var newSearchQuery: String? = null
+
 
     init {
-        getBreakingNews("us")
+        getBreakingNews(COUNTRY_CODE)
     }
 
     fun getBreakingNews(countryCode: String) = viewModelScope.launch {
@@ -34,6 +40,7 @@ class NewsViewModel(
     }
 
     fun searchNews(searchQuery: String) = viewModelScope.launch {
+        newSearchQuery = searchQuery
         searchedNews.postValue(ApiLoading())
         val response = newsRepository.searchNews(searchQuery, searchedNewsPage)
         searchedNews.postValue(handleSearchNewsResponse(response))
@@ -42,7 +49,14 @@ class NewsViewModel(
     private fun handleBreakingNewsResponse(response: Response<NewsResponse>): ApiResponse<NewsResponse> {
         if (response.isSuccessful) {
             response.body()?.let { resultResponse ->
-                return ApiSuccess(resultResponse)
+                breakingNewsPage++
+                if (breakingNewsResponse == null) breakingNewsResponse = resultResponse
+                else {
+                    val oldArticles = breakingNewsResponse?.articles
+                    val newArticles = resultResponse.articles
+                    oldArticles?.addAll(newArticles)
+                }
+                return ApiSuccess(breakingNewsResponse ?: resultResponse)
             }
         }
         return ApiError(message = response.message())
@@ -51,7 +65,18 @@ class NewsViewModel(
     private fun handleSearchNewsResponse(response: Response<NewsResponse>): ApiResponse<NewsResponse> {
         if (response.isSuccessful) {
             response.body()?.let { resultResponse ->
-                return ApiSuccess(resultResponse)
+                if (searchedNewsResponse == null || newSearchQuery != oldSearchQuery) {
+                    searchedNewsPage = 1
+                    oldSearchQuery = newSearchQuery
+                    searchedNewsResponse = resultResponse
+                }
+                else {
+                    searchedNewsPage++
+                    val oldArticles = searchedNewsResponse?.articles
+                    val newArticles = resultResponse.articles
+                    oldArticles?.addAll(newArticles)
+                }
+                return ApiSuccess(searchedNewsResponse ?: resultResponse)
             }
         }
         return ApiError(message = response.message())
