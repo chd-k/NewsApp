@@ -2,16 +2,16 @@
 
 ### Technologies stack
 
-- Navigation component
-- ViewBinding
 - Retrofit2
 - OkHttp3
-- Coroutines
 - Room
-- LiveData
-- Single Activity
-- MVVM
 - Glide
+- Coroutines
+- ViewBinding
+- LiveData
+- Navigation component
+- MVVM
+- Single Activity
 - Material Design
 - Pagination
 
@@ -31,7 +31,6 @@ Made decomposition of app development process and write a table to track my time
 | WebView setup                        | Set up argument for `ArticlePageFragment`, passing data through nav component and debug `java.lang.NullPointerException`                | 1 hour 30 minutes |
 | Writing to DB                        | Set up streams for writing and deleting                                                                                                 | 45 minutes        |
 | Pagination                           | Set up custom pagination and fix bug with search                                                                                        | 1 hour 30 minutes |
-| Internet connection checking         |                                                                                                                                         |                   |
 
 ### Changes/features 
 
@@ -48,9 +47,9 @@ Made decomposition of app development process and write a table to track my time
 2. Is it okay to get access Activity variable from Fragments (like `viewModel = (activity as MainActivity).viewModel`)?
 3. How to check API responses with codes?
 
-### To-do
+### Upcoming changes
 - [ ] redesign app
-- [ ] refactor 
+- [ ] refactor (in my opinion VM is complicated, maybe it is necessary to implement 2 VM)
 - [ ] debug `java.lang.NullPointerException` because of null `hachCode()`
 - [ ] define layers of app architecture 
 

@@ -16,17 +16,17 @@ import kotlinx.coroutines.launch
 import retrofit2.Response
 
 class NewsViewModel(
-    val newsRepository: NewsRepository,
+    private val newsRepository: NewsRepository,
 ) : ViewModel() {
 
     val breakingNews: MutableLiveData<ApiResponse<NewsResponse>> = MutableLiveData()
     var breakingNewsPage = 1
-    var breakingNewsResponse: NewsResponse? = null
+    private var breakingNewsResponse: NewsResponse? = null
     val searchedNews: MutableLiveData<ApiResponse<NewsResponse>> = MutableLiveData()
     var searchedNewsPage = 1
-    var searchedNewsResponse: NewsResponse? = null
-    var oldSearchQuery: String? = null
-    var newSearchQuery: String? = null
+    private var searchedNewsResponse: NewsResponse? = null
+    private var oldSearchQuery: String? = null
+    private var newSearchQuery: String? = null
 
 
     init {
@@ -69,8 +69,7 @@ class NewsViewModel(
                     searchedNewsPage = 1
                     oldSearchQuery = newSearchQuery
                     searchedNewsResponse = resultResponse
-                }
-                else {
+                } else {
                     searchedNewsPage++
                     val oldArticles = searchedNewsResponse?.articles
                     val newArticles = resultResponse.articles
@@ -96,7 +95,9 @@ class NewsViewModel(
         ViewModel factory. Defined in ViewModel file for better context, readability, and easier
         discovery according to Google recommendations
     */
-    class Factory(private val newsRepository: NewsRepository) : ViewModelProvider.Factory {
+    class Factory(
+        private val newsRepository: NewsRepository,
+    ) : ViewModelProvider.Factory {
 
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
